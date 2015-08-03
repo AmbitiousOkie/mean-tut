@@ -14,6 +14,22 @@ app.controller('MainCtrl', [
 		  {title: 'post 4', upvotes: 9},
 		  {title: 'post 5', upvotes: 4}
 		];
+
+		$scope.addPost = function(){
+			if(!$scope.title || $scope.title === '') {return; } // Prevents empty titles
+			$scope.posts.push({
+				title: "A new post!",
+				link: $scope.link,
+				upvotes: 0}
+			); //pushes a new object to the end of the array
+			$scope.title = ""; // runs afterwards to clear the variable
+			$scope.link = ""; // runs afterwards to clear the variable
+		};
+
+		$scope.incrementUpvotes = function(post) {
+		  post.upvotes += 1;
+		};
+
 }]);
 
 
